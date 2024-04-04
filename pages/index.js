@@ -14,7 +14,6 @@ export default function Home() {
         <span className="px-2">
           {session?.user?.name}
         </span>
-        {session?.user?.name}
       </div>
     </div>
   </Layout>
