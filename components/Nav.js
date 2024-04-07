@@ -3,9 +3,8 @@ import { useRouter } from "next/router";
 
 export default function Nav() {
     const inactiveLink = 'flex gap-1 p-1';
-    const activeLink = inactiveLink+' bg-highlight text-black rounded-sm';
-    const router = useRouter();
-    const {pathname} = router;
+    const activeLink = inactiveLink +' bg-highlight text-black rounded-sm';
+    const {pathname} = useRouter();
     return (
         <aside className="text-white p-4 pr-0">
             <Link href={'/'} className="flex gap-1 mb-4 mr-4">

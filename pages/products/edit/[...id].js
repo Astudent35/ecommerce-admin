@@ -17,7 +17,8 @@ export default function EditProductPage() {
               _id: res.data._id,
               title: res.data.title,
               description: res.data.description,
-              price: res.data.price
+              price: res.data.price,
+              images: res.data.images
           });
       });
     }, [id]);
