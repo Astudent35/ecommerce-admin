@@ -19,6 +19,7 @@ export default function Products() {
                 <thead>
                     <tr>
                         <td>Product name</td>
+                        <td>Actions</td>
                     </tr>
                 </thead>
                 <tbody>
