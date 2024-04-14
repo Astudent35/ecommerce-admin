@@ -121,7 +121,7 @@ function CategoriesPage({swal}) {
                         <div className="flex gap-1 mb-2" >
                             <input className="mb-0" value={property.name} onChange={e => handlePropertyNameChange(index, property, e.target.value)} type="text" placeholder={"property name"}/>
                             <input className="mb-0" value={property.value} onChange={e => handlePropertyValueChange(index, property, e.target.value)} type="text" placeholder={"property value"}/>
-                            <button onClick={() => removeProperty(index)} type="button" className="btn-default text-sm">Remove</button>
+                            <button onClick={() => removeProperty(index)} type="button" className="btn-red text-sm">Remove</button>
                         </div>
                     ))} 
                 </div>
@@ -149,8 +149,8 @@ function CategoriesPage({swal}) {
                                 <td>{category?.parent?.name}</td>
                                 <div>
                                     <td>
-                                        <button onClick={() => editCategory(category)} className="btn-primary mr-1">Edit</button>
-                                        <button onClick={() => deleteCategory(category)} className="btn-primary">Delete</button>
+                                        <button onClick={() => editCategory(category)} className="btn-default mr-1">Edit</button>
+                                        <button onClick={() => deleteCategory(category)} className="btn-red">Delete</button>
                                     </td>
                                 </div>
                             </tr>
