@@ -1,40 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-commerce Admin Panel
+
+This project is an admin panel for managing an e-commerce platform. It allows administrators to manage products, categories, and orders. The application is built using Next.js and integrates with MongoDB for data storage and NextAuth for authentication.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js
+- MongoDB
+- AWS S3 (for image uploads)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+   ```bash
+   git clone <repository-url>
+   cd admin
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+2. Install dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Set up environment variables:
+Create a .env file in the root directory and add the following:
 
-To learn more about Next.js, take a look at the following resources:
+    ```
+    MONGODB_URI=<your-mongodb-uri>
+    NEXTAUTH_URL=http://localhost:3000
+    GOOGLE_CLIENT_ID=<your-google-client-id>
+    GOOGLE_CLIENT_SECRET=<your-google-client-secret>
+    AWS_ACCESS_KEY_ID=<your-aws-access-key-id>
+    AWS_SECRET_ACCESS_KEY=<your-aws-secret-access-key>
+    S3_BUCKET_NAME=<your-s3-bucket-name>
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Run the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Authentication
+- Google OAuth authentication using NextAuth.
+- Only specific admin emails are allowed access.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Product Management
+- Add, edit, delete products.
+- Upload product images to AWS S3.
+
+### Category Management
+- Add, edit, delete categories.
+- Nested categories support.
+
+### Order Management
+- View orders with details.
+
+## API Routes
+
+### Authentication
+- `GET /api/auth/[...nextauth]`: Handles authentication with Google OAuth.
+
+### Products
+- `GET /api/products`: Fetch all products or a specific product by ID.
+- `POST /api/products`: Create a new product.
+- `PUT /api/products`: Update an existing product.
+- `DELETE /api/products`: Delete a product by ID.
+
+### Categories
+- `GET /api/categories`: Fetch all categories.
+- `POST /api/categories`: Create a new category.
+- `PUT /api/categories`: Update an existing category.
+- `DELETE /api/categories`: Delete a category by ID.
+
+### Orders
+- `GET /api/orders`: Fetch all orders.
+
+### Upload
+- `POST /api/upload`: Upload images to AWS S3.
