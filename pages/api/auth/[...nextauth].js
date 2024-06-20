@@ -3,7 +3,8 @@ import GoogleProvider from "next-auth/providers/google"
 import { MongoDBAdapter } from "@auth/mongodb-adapter"
 import clientPromise from "@/lib/mongodb"
 
-const adminEmails = ['haideraslam71@gmail.com']
+require('dotenv').config();
+const adminEmails = process.env.LIST_ADMIN_EMAIL.split(',');
 
 export const authOptions = {
   // Configure one or more authentication providers
